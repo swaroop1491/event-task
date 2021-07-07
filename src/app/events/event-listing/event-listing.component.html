@@ -1,0 +1,33 @@
+<div class="event-list-container">
+    <h3 class="event-list-heading-text">
+        Upcoming Events
+    </h3>
+
+    <mat-form-field class="search-events-control">
+        <input matInput placeholder="SEARCH EVENTS" [formControl]="searchTerm">
+    </mat-form-field>
+
+    <div class="list-container">
+        <div class="event-list" *ngIf="eventDataList.length > 0">
+            <div class="event-list-item" *ngFor="let event of eventDataList;let index = index">
+                <mat-card class="event-card">
+                    <mat-card-header class="event-card-header">
+                        <mat-card-title class="event-heading-text">{{event.eventName}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image class="event-image" [src]="event.imageUrl" [alt]="event.eventName">
+                    <mat-card-content class="event-content">
+                        <p>Event Date : {{event.eventDate | date}}</p>
+                        <p>Seats Available : {{event.seatsAvailable}}</p>
+                    </mat-card-content>
+                    <mat-card-actions class="card-actions-container">
+                        <button mat-raised-button color="primary" class="book-now-action-button"
+                            (click)="bookNow(index)" *ngIf="event.seatsAvailable > 0">Book Now</button>
+                        <p *ngIf="event.seatsAvailable === 0" class="sold-out-text">Sold Out</p>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+    <h4 *ngIf="eventDataList.length === 0" class="event-data-empty-text">No results found!</h4>
+</div>

@@ -1,0 +1,62 @@
+[
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 0
+    },
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 0
+    },
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 12
+    },
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 23
+    },
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 13
+    },
+    {
+        "eventName": "Event 1",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 4
+    },
+    {
+        "eventName": "Event 2",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 5
+    },
+    {
+        "eventName": "Event 3",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 16
+    },
+    {
+        "eventName": "Event 4",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 34
+    },
+    {
+        "eventName": "Event 5",
+        "imageUrl": "assets/event-image.jpg",
+        "eventDate": "2012-04-23T18:25:43.511Z",
+        "seatsAvailable": 50
+    }
+]

@@ -1,0 +1,52 @@
+.event-details-container {
+    margin: 20px 2% 20px;
+
+    .event-details-header {
+        margin-left: 8%;
+        margin-bottom: 25px;
+
+        .seats-available-text {
+            margin: 10px auto;
+            font-size: 15px;
+        }
+    }
+
+    .successful-submission {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+
+        .successful-submission-card {
+            width: 80%;
+
+            .success-message {
+                margin: 10px auto;
+                font-size: 15px;
+            }
+        }
+    }
+
+    .booking-form-container {
+        display: flex;
+        justify-content: center;
+
+        .booking-form-card {
+            width: 80%;
+
+            .booking-form {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+
+                label {
+                    font-weight: bold;
+                }
+
+                .booking-form-field {
+                    width: 40%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

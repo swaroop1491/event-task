@@ -1,0 +1,102 @@
+<div class="event-details-container">
+    <div class="event-details-header">
+        <h2 class="event-header-text">{{eventDetails?.eventName}}</h2>
+        <h5 class="seats-available-text">Number of available seats - {{eventDetails?.seatsAvailable}}</h5>
+    </div>
+
+    <div class="successful-submission" *ngIf="formSubmitted">
+        <mat-card class="successful-submission-card">
+            <mat-card-content>
+                <h5 class="success-message">Tickets booked</h5>
+
+                <div class="booking-details">
+                    <p>User Name - {{bookingForm.value.userName}}</p>
+                    <p>Email - {{bookingForm.value.email}}</p>
+                    <p>Phone Number - {{bookingForm.value.phoneNumber}}</p>
+                    <p>No. of Seats - {{bookingForm.value.numberOfSeats}}</p>
+                    <p>Attendees - {{getAttendees()}}</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="booking-form-container">
+        <mat-card class="booking-form-card">
+            <mat-card-content>
+                <form [formGroup]="bookingForm" class="booking-form">
+                    <label for="userNameField">User Name</label>
+                    <mat-form-field class="booking-form-field" id="userNameField">
+                        <mat-label>User Name</mat-label>
+                        <input matInput type="text" placeholder="User Name" formControlName="userName">
+                        <mat-error *ngIf="bookingForm.get('userName').hasError('required')">
+                            Please enter you name
+                        </mat-error>
+                        <mat-error *ngIf="bookingForm.get('userName').hasError('pattern')">
+                            Only letters and spaces are allowed
+                        </mat-error>
+                    </mat-form-field>
+
+                    <label for="emailField">Email</label>
+                    <mat-form-field class="booking-form-field" id="emailField">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="text" placeholder="Email" formControlName="email">
+                        <mat-error *ngIf="bookingForm.get('email').hasError('required')">
+                            Please enter your email
+                        </mat-error>
+                        <mat-error *ngIf="bookingForm.get('email').hasError('email')">
+                            Invalid email
+                        </mat-error>
+                    </mat-form-field>
+
+                    <label for="phoneNumberField">Phone Number</label>
+                    <mat-form-field class="booking-form-field" id="phoneNumberField">
+                        <mat-label>Phone Number</mat-label>
+                        <span matPrefix>+91</span>
+                        <input matInput type="text" placeholder="Phone Number" formControlName="phoneNumber">
+                        <mat-error *ngIf="bookingForm.get('phoneNumber').hasError('pattern')">
+                            Please enter 10 digit phone number
+                        </mat-error>
+                    </mat-form-field>
+
+                    <label for="numerOfSeatsField">No. of Seats</label>
+                    <mat-form-field class="booking-form-field" id="numerOfSeatsField">
+                        <mat-label>No. of Seats</mat-label>
+                        <mat-select formControlName="numberOfSeats">
+                            <mat-option *ngFor="let seats of numberOfSeatsOptions" [value]="seats">{{seats}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="bookingForm.get('numberOfSeats').hasError('required')">
+                            Please enter number of seats
+                        </mat-error>
+                        <mat-error *ngIf="bookingForm.get('numberOfSeats').hasError('max')">
+                            Number of seats selected is more than available seats
+                        </mat-error>
+                    </mat-form-field>
+
+                    <ng-container formArrayName="namesOfAttendees"
+                        *ngFor="let item of getAttendeesFormArray().controls; let i = index;">
+                        <ng-container [formGroupName]="i">
+                            <label for="nameOfAttendee{{i+1}}">Name of Attendee {{i + 1}}</label>
+                            <mat-form-field class="booking-form-field" id="nameOfAttendee{{i+1}}">
+                                <mat-label>Name of Attendee {{i + 1}}</mat-label>
+                                <input matInput type="text" placeholder="Name of Attendee {{i + 1}}"
+                                    formControlName="name">
+                                <mat-error *ngIf="getAttendeesFormArray().controls[i].get('name').hasError('required')">
+                                    Please enter the name of Attendee {{i+1}}
+                                </mat-error>
+                            </mat-form-field>
+                        </ng-container>
+                    </ng-container>
+                </form>
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="actions-container">
+                    <button mat-raised-button color="primary" [disabled]="formSubmitted"
+                        (click)="submitBookingDetails()">Submit</button>
+                    <button mat-raised-button color="warn" [disabled]="formSubmitted"
+                        (click)="cancelBooking()">Cancel</button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
